@@ -57,11 +57,11 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            background-color: #ffffff;
-                            color:#222529;
+                            background-color: $color-light-1;
+                            color:$color-dark-2;
                             border-radius: 50%;
                             text-decoration: none;
-                            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.15);
+                            box-shadow: 0 0 5px 2px $color-shadow-1;
                             margin-left: 1rem;
                             transition: background-color 0.25s, color 0.20s;
                             margin-bottom: 1rem;
@@ -73,8 +73,8 @@
                             }
                             &:hover,
                             &.active {
-                                background-color: #222529;
-                                color: #ffffff;
+                                background-color: $color-dark-2;
+                                color: $color-light-1;
                                 text-decoration: none;
                             }
                         }        
@@ -100,12 +100,12 @@
                 .product-card-category {
                     font-size: 16px;
                     font-weight: 500;
-                    color: #616365;
+                    color: $color-dark-3;
                     margin-top: 15px;
                     @include md {
                         font-size: 13px;
                         font-weight: 500;
-                        color: #616365;
+                        color: $color-dark-3;
                         margin-top: 10px;
                     }
                 }
@@ -120,11 +120,11 @@
                 }
 
                 .product-card-rating {
-                    color: #ff7373;
+                    color: $color-theme;
                     font-size: 20px;
                     margin-top: 10px;
                     @include md {
-                        color: #ff7373;
+                        color: $color-theme;
                         font-size: 16px;
                         margin-top: 5px;
                     }

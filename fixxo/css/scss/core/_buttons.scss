@@ -38,6 +38,63 @@ button {
         text-decoration: none;    
     }
 }
+.btn-theme-2 {
+    @include default-colors-with-border;
+    padding: 15 px 60px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-block;
+    transition: background-color 0.25s;
+    position: relative;
+
+    &::before {
+        content: "";
+        border-top: 2px solid $color-dark-2;
+        border-left: 2px solid $color-dark-2;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        height: 25px;
+        width: 25px;
+    }
+
+    &::after {
+        content: "";
+        border-bottom: 2px solid $color-dark-2;
+        border-right: 2px solid $color-dark-2;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        height: 25px;
+        width: 25px;
+    }
+
+    &:hover {
+        @include dark-colors-with-border;
+        text-decoration: none;
+        &::before {
+            content: "";
+            border-top: 2px solid $color-light-2;
+            border-left: 2px solid $color-light-2;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            height: 25px;
+            width: 25px;
+        }
+        
+        &::after {
+            content: "";
+            border-bottom: 2px solid $color-light-2;
+            border-right: 2px solid $color-light-2;
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            height: 25px;
+            width: 25px;
+        }    
+    }
+}
 
 
 

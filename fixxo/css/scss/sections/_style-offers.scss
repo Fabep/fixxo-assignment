@@ -1,0 +1,63 @@
+.style-offers {
+    .title {
+        @include font-title-1;
+        margin: 0;
+        font-weight: $font-weight-bold;
+    }
+    .default-text {
+        @include default-font;
+    }
+    .container {
+        height: 300px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "box-1"
+                             "box-3"
+                             "box-2";
+        gap: 30px;
+        @include md {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "box-1 box-3"
+                                 "box-2 box-2";
+        }
+        @include lg {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: "box-1 box-2 box-3";
+        }
+        .box-1 {
+            text-decoration: none;
+            color: $color-dark-2;
+            background-color: $color-peach;
+            display: inline-flex;
+            .content {
+                text-align: right;
+                img {
+                    display: none;
+                }
+                .default-text {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .box-2 {
+            background-color: $color-light-2;
+            .content {
+                
+            }
+        }
+        .box-3 {
+            text-decoration: none;
+            color: $color-dark-2;
+            background-color: $color-mayan-maize;
+            display: inline-flexbox;
+            .content {
+                img {
+                    display: none;
+                }
+                .default-text {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
