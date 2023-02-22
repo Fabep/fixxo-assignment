@@ -1,0 +1,90 @@
+.showcase {
+    background: #f3f3f3;
+    background: linear-gradient(90deg, #f3f3f3 0%, #f5f5f5 100%);
+    @include default-font;
+
+    .title-1 {
+        @include font-title-1;
+    }
+    .title-2 {
+        @include font-title-2;
+    }
+    .title-3 {
+        @include font-title-3;
+    }
+
+    .btn-theme {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    @include lg {
+        .title-1 {
+            font-size: 3em;
+        }
+        .title-2 {
+            font-size: 2em;
+        }
+        .title-3 {
+            font-size: 1.2em;
+        }
+    }
+    @include xxl {
+        .title-1 {
+            font-size: 4em;
+        }
+        .title-2 {
+            font-size: 2.5em;
+        }
+        .title-3 {
+            font-size: 1.5em;
+        }
+    }
+
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "column1";
+        @include lg {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "column1 column2";
+        }
+    }
+    .column-1 {
+        grid-area: column1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        
+        .content {
+            text-align: center; 
+            @include lg {
+                text-align: left;
+            }
+        }
+    }
+    .column-2 {
+        grid-area: column2;
+        display: none;
+
+        @include lg {
+            display: block;
+        }
+        img {
+            height: 100%;
+            width: auto;
+            object-fit: fit;
+
+            @include lg {
+                height: 550px;
+                width: auto;
+            }
+            
+            @include xxl {
+                height: 700px;
+            }
+        }
+    }
+}
