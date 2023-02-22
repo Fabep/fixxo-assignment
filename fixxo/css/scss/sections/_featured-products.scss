@@ -1,0 +1,154 @@
+.featured-products {
+    margin-top: 40px;
+    @include lg {
+        margin-top: 110px;
+    }
+    .container {
+        max-width: 1110px;
+        & > .title {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            @include md {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            @include lg {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            .product-card  {
+                margin: 0;
+                p  {
+                    margin: 0; 
+                }
+
+                .product-card-img {
+                    position: relative;
+                    .product-card-menu {
+                        @include lg {
+                            opacity: 0%;
+                            transition: all 0.15s;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                        object-fit: cover; 
+                    }
+
+                    .menu-icons {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        @include md {
+                            top: 10px;
+                            right: 15px;     
+                        }
+                        .menu-link {
+                            height: 50px;
+                            width: 50px;
+                            font-size: 22px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: #ffffff;
+                            color:#222529;
+                            border-radius: 50%;
+                            text-decoration: none;
+                            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.15);
+                            margin-left: 1rem;
+                            transition: background-color 0.25s, color 0.20s;
+                            margin-bottom: 1rem;
+                            @include md {
+                                font-size: 16px;
+                                height: 36px;
+                                width: 36px;
+                                margin-bottom: 8px;
+                            }
+                            &:hover,
+                            &.active {
+                                background-color: #222529;
+                                color: #ffffff;
+                                text-decoration: none;
+                            }
+                        }        
+                    }
+
+                    .btn-theme {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        text-align: center;
+                        @include md {
+                            padding: 13px 50px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .product-card-body {
+                    text-align: center;
+                }
+
+                .product-card-category {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #616365;
+                    margin-top: 15px;
+                    @include md {
+                        font-size: 13px;
+                        font-weight: 500;
+                        color: #616365;
+                        margin-top: 10px;
+                    }
+                }
+
+                .product-card-title {
+                    font-size: 20px;
+                    font-weight: 700;
+                    @include md {
+                        font-size: 16px;
+                        font-weight: 700;
+                    }
+                }
+
+                .product-card-rating {
+                    color: #ff7373;
+                    font-size: 20px;
+                    margin-top: 10px;
+                    @include md {
+                        color: #ff7373;
+                        font-size: 16px;
+                        margin-top: 5px;
+                    }
+                }
+                .product-card-price {
+                    font-size: 22px;
+                    font-weight: 700;
+                    margin-top: 10px;
+                    margin-bottom: 15px;
+                    @include md {
+                        font-size: 18px;
+                        font-weight: 700;
+                        margin-top: 5px;
+                        margin-bottom: 10px;
+                    }
+                }
+                &:hover {
+                    @include lg{
+                        .product-card-img .product-card-menu {
+                            opacity: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
