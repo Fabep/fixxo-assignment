@@ -577,17 +577,12 @@ header .menu-icons .menu-link:hover, header .menu-icons .menu-link.active {
   line-height: 1.5;
 }
 .style-offers .container {
-  height: 300px;
+  max-width: 95vw;
+  grid-auto-rows: 1fr;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "box-1" "box-3" "box-2";
   gap: 30px;
-}
-@media (min-width: 720px) {
-  .style-offers .container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "box-1 box-3" "box-2 box-2";
-  }
 }
 @media (min-width: 960px) {
   .style-offers .container {
@@ -600,9 +595,9 @@ header .menu-icons .menu-link:hover, header .menu-icons .menu-link.active {
   color: #222529;
   background-color: #ffe1c9;
   display: inline-flex;
-}
-.style-offers .container .box-1 .content {
-  text-align: right;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .style-offers .container .box-1 .content img {
   display: none;
@@ -613,16 +608,37 @@ header .menu-icons .menu-link:hover, header .menu-icons .menu-link.active {
 .style-offers .container .box-2 {
   background-color: #f3f3f3;
 }
+.style-offers .container .box-2 .content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.style-offers .container .box-2 .content .title {
+  margin-top: 60px;
+}
+.style-offers .container .box-2 .content .default-text {
+  margin: 60px;
+}
+.style-offers .container .box-2 .content #button {
+  margin-bottom: 60px;
+}
 .style-offers .container .box-3 {
   text-decoration: none;
   color: #222529;
   background-color: #facc71;
-  display: inline-flexbox;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 .style-offers .container .box-3 .content img {
   display: none;
 }
+.style-offers .container .box-3 .content .title {
+  text-align: center;
+}
 .style-offers .container .box-3 .content .default-text {
+  text-align: center;
   text-decoration: underline;
 }
 
