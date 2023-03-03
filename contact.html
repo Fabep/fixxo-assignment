@@ -33,6 +33,7 @@
                             <i class="fa-regular fa-bag-shopping"></i>
                             <span class="menu-badge">12</span>
                         </a>
+                        <a class="menu-link ms-5" href="#"><i class="fa-regular fa-user"></i></a>
                     </nav>
                 </div>
     
@@ -65,7 +66,7 @@
         <section class="contact-form">
             <div class="container">
                 <h1>Come in Contact with Us</h1>
-                <form method="post">
+                <form onsubmit="handleContactForm(event)">
                     <div class="contact-form-name">
                         <input id="name" name="name" type="text" placeholder="Your Name">
                         <div class="error">You must provide a valid name</div>
