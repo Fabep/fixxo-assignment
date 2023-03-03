@@ -35,7 +35,7 @@ try {
 catch {}
 
 async function getProducts(target, tag) {
-    const element = document.querySelector('target')
+    const element = document.querySelector(target)
 
     const response = await fetch(`https://kyh-net22.azurewebsites.net/api/products/${tag}`)
     const data = await response.json()
