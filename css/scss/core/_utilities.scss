@@ -3,7 +3,9 @@ html, body {
     @include default-colors;
 }
 
-.totop-arrow {
+
+#totop-arrow {
+    display: block;
     @include default-colors-with-border;
     position: fixed;
     right: 50px;
@@ -12,10 +14,14 @@ html, body {
     padding: 5px 16px;
     border-radius: 50%;
     transition: background-color 0.25s, color 0.15s;
-
+    
     &:hover {
         @include dark-colors-with-border;
     }
+}
+
+.hide {
+    display: none;
 }
 
 .menu-badge {

@@ -20,6 +20,14 @@ header {
         }
     }
 
+    #logotype {
+        grid-area: logotype;
+        font-size: 2.188em;
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+        color: $color-dark-2;
+    }
+
     #menu {
         grid-area: menu;
         grid-template-areas: "menulinks"
@@ -31,38 +39,27 @@ header {
             grid-template-areas: "menulinks menuicons";
         }
     }
-    #logotype {
-        grid-area: logotype;
-    }
+    
     #menu-links {
         grid-area: menulinks;
     }
     #menu-icons {
         grid-area: menuicons;
-    }
-    #toggle-icon {
-        grid-area: toggleicon;   
+        margin-top: 20px;
 
         @include lg {
-            display: none;
+            margin-top: 0px;
         }
     }
 
-    .logotype {
-        font-size: 2.188em;
-        font-weight: $font-weight-bold;
-        text-decoration: none;
-        color: $color-dark-2;
-    }
-
-    .menu-links {      
+    .links {      
         @include lg {
             display: flex !important;
             justify-content: center;
             align-items: center;
         }
         
-        .menu-link {
+        .link {
             color: $color-dark-2;
             font-weight: $font-weight-medium;
             text-decoration: none;           
@@ -76,28 +73,16 @@ header {
                 text-decoration: none;
             }
         }
-
-
     }
 
-    .menu-icons {
-        margin-top: 2rem;
+    .icons {
         @include content-center;
         
         @include lg {
-            margin-top: 0;
             justify-content: flex-end;
         }
 
-        nav {
-            display: none;
-
-            @include lg {
-                display: flex;
-            }
-        }
-
-        .menu-link {
+        .link {
             position: relative;
             height: 36px;
             width: 36px;
@@ -118,6 +103,12 @@ header {
         
     }
 
-
+    #toggle-icon {
+        grid-area: toggleicon;   
+        justify-content: flex-end;
+        @include lg {
+            display: none;
+        }
+    }
 }
 
