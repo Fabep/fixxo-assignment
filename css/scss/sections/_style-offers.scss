@@ -1,4 +1,10 @@
 .style-offers {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    @include lg {
+        margin-top: 128px;
+        margin-bottom: 128px;
+    }
     .title {
         @include font-title-1;
         margin: 0;
@@ -21,31 +27,32 @@
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: "box-1 box-2 box-3";
         }
-        .box-1 {
-            text-decoration: none;
-            color: $color-dark-2;
-            background-color: $color-peach;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            .content {
-                img {
-                    display: none;
-                }
-                .title{
-                    
-                }
-                .default-text {
-                    
-                    text-decoration: underline;
-                }
+        #box-2 {
+            order: 3;
+            @include lg {
+                order: 2;
             }
         }
-        .box-2 {
+        #box-3 {
+            order: 2;
+            @include lg {
+                order: 3;
+            }
+        }
+
+
+        .img-container {
+            align-self: center;
+            img {
+                max-width: 100%;
+            }
+        }
+        .sale {
+            max-height: 100%;
+            max-width:max-content;
             background-color: $color-light-2;
-            // outline: 10px solid $color-theme;
-            // outline-offset: -25px;
+            outline: 10px solid $color-theme;
+            outline-offset: -25px;
             .content {
                 display: inline-flex;
                 align-items: center;
@@ -55,30 +62,7 @@
                     margin-top: 60px;
                 }
                 .default-text{  
-                    margin: 60px;
-                }
-                #button{
-                    margin-bottom: 60px;
-                }
-            }
-        }
-        .box-3 {
-            text-decoration: none;
-            color: $color-dark-2;
-            background-color: $color-mayan-maize;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            .content {
-                img {
-                    display: none;
-                }
-                .title{
-                    text-align: center;
-                }
-                .default-text {
-                    text-align: center;
-                    text-decoration: underline;
+                    margin: 50px;
                 }
             }
         }

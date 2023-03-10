@@ -70,41 +70,59 @@
       <div class="container">
         <div class="title">Featured Products</div>
           <div id="featured-products" class="collection-grid">
-          
+            
           </div>
         </div>
       </div>
     </section>
 
+
+    <!-- style offers -->
     <section class="style-offers">
       <div class="container">
-        <a href="#" class="box-1">
-          <div class="content">
-            <img src="#" alt="...">
-            <p class="title">Office Style</p>
-            <p class="default-text">Shop Now</p>
-          </div>
+        <a href="#" id="box-1" class="img-container">
+          <img src="images/office-style.png" alt="office-style">
         </a>
-        <div class="box-2">
+        <div id="box-2" class="sale">
           <div class="content">
             <p class="title">50% Offer</p>
             <p class="default-text">THIS TEXT IS VERY IMPORTANT FOR THE FUNCTIONALITY OF THIS SITE (Not really).</p>
-            <a href="#" id="button" class="btn-theme-2">FLASH SALE</a>
+            <a href="#" class="btn-theme-2">FLASH SALE</a>
           </div>
         </div>
-        <a href="#" class="box-3">
-          <div class="content">
-            <p class="title">Party Style</p>
-            <p class="default-text">Shop Now</p>
-            <img src="#" alt="...">
-          </div>
+        <a href="#" id="box-3" class="img-container">
+          <img src="images/party-style.png" alt="party-style">
         </a>
       </div>
     </section>
+
+    <!-- sale -->
+    <section class="sale">
+      <div class="container">
+        <div class="sale-grid">
+          <div class="banner">
+            <p class="title">2 FOR 29$</p>
+            <a href="#" class="btn-theme-2"> NEW PRODUCTS</a>
+          </div>
+          <div id="new-products" class="products"></div>
+          <div id="popular-products" class="products"></div>
+          <div class="banner">
+            <p class="title">2 FOR 39$</p>
+            <a href="#" class="btn-theme-2">POPULAR PRODUCTS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- information -->
+
+    <!-- footer -->
 
     <div style="height: 200px;"></div>
     <button id="totop-arrow" class="hide"><i class="fa-solid fa-arrow-up"></i></button>
     <script src="js/script.js"></script>
     <script>getProducts("#featured-products", "featured")</script>
+    <script>getProducts("#new-products", "new")</script>
+    <script>getProducts("#popular-products", "popular")</script>
 </body>
 </html>

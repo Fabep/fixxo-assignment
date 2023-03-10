@@ -1,0 +1,193 @@
+.sale {
+    .container {
+        max-width: 100vw;
+
+        .sale-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-columns: "banner"
+                                   "new-products"
+                                   "banner"
+                                   "popular-products";
+            gap: 30px;
+            
+            @include md {
+                grid-template-columns: 1fr 1fr;
+            }
+            #popular-products {
+                order: 1;
+                @include lg {
+                    order: 0;
+                }
+            }
+
+            .banner {
+                padding: 20px;
+                background-color: $color-light-3;
+                @include content-center;
+                flex-direction: column;
+                .title {
+                    @include font-title-1;
+                    color: $color-dark-2;
+                }
+                @include lg {
+                    padding: 0;
+                }
+            }
+
+            .products {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 30px;
+                @include md {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .collection-card  {
+                    margin: 0;
+                    p  {
+                        margin: 0; 
+                    }
+    
+                    .card-content {
+                        position: relative;
+    
+                        img {
+                            width: 100%;
+                            object-fit: cover; 
+    
+                            &:hover,
+                            &.active {
+                                + .card-menu{
+                                    opacity: 90%;
+                                }
+                            }
+                        }
+                        
+                        .card-menu {
+                            .icons {
+                                position: absolute;
+                                z-index: 1;
+                                top: 15px;
+                                right: 15px;
+                                
+                                @include md {
+                                    top: 10px;
+                                    right: 15px;     
+                                }
+    
+                                .link {
+                                    height: 50px;
+                                    width: 50px;
+                                    font-size: 22px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    background-color: $color-light-1;
+                                    color:$color-dark-2;
+                                    border-radius: 50%;
+                                    text-decoration: none;
+                                    box-shadow: 0 0 5px 2px $color-shadow-1;
+                                    margin-left: 1rem;
+                                    transition: background-color 0.25s, color 0.20s;
+                                    margin-bottom: 1rem;
+                                    @include md {
+                                        font-size: 16px;
+                                        height: 36px;
+                                        width: 36px;
+                                        margin-bottom: 8px;
+                                    }
+                                    &:hover{
+                                        background-color: $color-dark-2;
+                                        color: $color-light-1;
+                                    }
+                                }        
+                            }
+    
+                            .btn-theme {
+                                position: absolute;
+                                bottom: 150px;
+                                left: 0;
+                                right: 0;
+                                text-align: center;
+                                @include md {
+                                    bottom: 100px;
+                                    padding: 13px 50px;
+                                    font-size: 16px;
+                                }
+                                @include lg {
+                                    bottom: 115px;
+                                }
+                            }
+    
+                            @include lg {
+                                opacity: 0%;
+                                transition: all 0.15s;
+                            }
+                            &:hover,
+                            &.active{
+                                opacity: 90%;
+                            }
+                        }
+                        
+                    }
+                    
+                    .card-body {
+                        text-align: center;
+                    }
+    
+                    .category {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: $color-dark-3;
+                        margin-top: 15px;
+                        @include md {
+                            font-size: 13px;
+                            font-weight: 500;
+                            color: $color-dark-3;
+                            margin-top: 10px;
+                        }
+                    }
+    
+                    .name {
+                        font-size: 20px;
+                        font-weight: 700;
+                        @include md {
+                            font-size: 16px;
+                            font-weight: 700;
+                        }
+                    }
+    
+                    .ranking {
+                        color: $color-theme;
+                        font-size: 20px;
+                        margin-top: 10px;
+                        @include md {
+                            color: $color-theme;
+                            font-size: 16px;
+                            margin-top: 5px;
+                        }
+                    }
+                    .price {
+                        font-size: 22px;
+                        font-weight: 700;
+                        margin-top: 10px;
+                        margin-bottom: 15px;
+                        @include md {
+                            font-size: 18px;
+                            font-weight: 700;
+                            margin-top: 5px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    &:hover {
+                        @include lg{
+                            .product-card-img .product-card-menu {
+                                opacity: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
