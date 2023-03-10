@@ -62,7 +62,18 @@
                     margin-top: 60px;
                 }
                 .default-text{  
+
                     margin: 50px;
+
+                }
+                .btn-theme-2 {
+                    margin-bottom: 30px;
+                    @include md {
+                        margin-bottom: 0;
+                    }
+                    @include lg {
+                        margin-bottom: 30px;
+                    }
                 }
             }
         }

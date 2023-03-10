@@ -190,4 +190,51 @@
             }
         }
     }
+    .sale-container {
+        max-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .sale-support {
+            border-top: 1px solid $color-dark-3;
+            margin-top: 128px;
+            max-width: 100vw;
+            @include lg {
+                max-width: 50vw;
+            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .box {
+                @include font-title-3;
+                p {
+                    text-align: center;
+                }
+                .circle {
+                    margin-top: 24px;
+                    margin-bottom: 24px;
+                    margin-left: 32px;
+                    margin-right: 32px;
+                    font-size: 1rem;
+                    position: relative;
+                    height: 36px;
+                    width: 36px;
+                    @include content-center;
+                    @include default-colors;
+                    border-radius: 50%;
+                    text-decoration: none;
+                    box-shadow: 0 0 5px 2px $color-shadow-1;
+                    @include lg {
+                        margin-top: 48px;
+                        margin-bottom: 48px;
+                        margin-left: 128px;
+                        margin-right: 128px;
+                        height: 72px;
+                        width: 72px;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
 }

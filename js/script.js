@@ -7,7 +7,7 @@ arrow.addEventListener('click', () => {
 window.addEventListener('scroll', () => {
     const scrollPosY = window.scrollY
 
-    if (scrollPosY >= 100) {
+    if (scrollPosY >= 100 && scrollPosY !== window.outerHeight - window.innerHeight) {
         arrow.style.display = 'block'
     }
     else {
