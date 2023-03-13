@@ -41,6 +41,7 @@ async function getProducts(target, tag) {
     const data = await response.json()
 
     for (let item of data) {
+        let stars = ratingCalculator(item.starRating)
         element.innerHTML += 
         `
             <div class="collection-card">
@@ -57,17 +58,32 @@ async function getProducts(target, tag) {
                     <p class="category">${item.category}</p>
                     <p class="name">${item.name}</p>
                     <div class="ranking">
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-regular fa-sharp fa-star"></i>
+                    ${stars[0]}
+                    ${stars[1]}
+                    ${stars[2]}
+                    ${stars[3]}
+                    ${stars[4]}
                     </div>
                     <p class="price">${item.originalPrice} ${item.currency}</p>
                 </div>
             </div>
         `
     }
+}
+
+const ratingCalculator = (starRating) => {
+    let counter = 0;
+    let stars  = [5];
+    while (counter < 5){
+        if ( counter <= starRating ) {
+            stars[counter] = '<i class="fa-solid fa-sharp fa-star"></i>'
+        }
+        else {
+            stars[counter] = '<i class="fa-regular fa-sharp fa-star"></i>'
+        }
+        counter += 1;
+    }
+    return (stars)
 }
 
 // Danger zone
