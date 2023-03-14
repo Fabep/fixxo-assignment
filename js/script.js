@@ -50,7 +50,7 @@ async function getProducts(target, tag) {
                 <div class="card-menu">
                     <nav class="icons">
                     <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
-                    <a class="link" href="#"><i class="fa-regular fa-bag-shopping"></i></a>
+                    <a class="link" href="#"><i id="productCart" class="fa-regular fa-bag-shopping"></i></a>
                     </nav>
                     <a class="btn-theme" href="#">QUICK VIEW</a>
                 </div>
@@ -84,6 +84,14 @@ const ratingCalculator = (starRating) => {
         counter += 1;
     }
     return (stars)
+}
+
+const addToCart = () => {
+    let counter = 0;
+    document.getElementById('productCart').onclick = () => {
+        counter += 1;
+        document.getElementById('shoppingCart').innerHTML = `<span class="menu-badge">${counter}</span>`;
+    }
 }
 
 // Danger zone
