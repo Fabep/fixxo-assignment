@@ -97,24 +97,113 @@ const addToCart = () => {
 // Danger zone
 async function handleContactForm(e) {
     e.preventDefault()
+    const errors = []
+    const errorMessage = document.getElementById('errorMessage')
+    errorMessage.innerHTML = ' '
 
-    const form = {
-        name: "",
-        email: "",
-        comments: ""
+    for (let element of e.target){
+        if (element.required) {
+            const errorElement = document.getElementById(`error-${element.id}`)
+
+            if (element.value.length === 0) {
+                errorElement.innerHTML = `${element.id} is required`
+                errors.push(false)
+            }
+            else {
+                errorElement.innerHTML = ` `
+
+                switch(element.type){
+                    case 'email':
+                        errors.push(validateEmail)
+                        break;
+                    case 'name':
+                        errors.push(validateName)
+                        break;
+                    case 'comments':
+                        errors.push(validateComments)
+                        break;
+                }
+            }
+        }
     }
 
-    const res = await fetch('https://kyh-net22.azurewebsites.net/api/contacts', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(form)
-    })
+    if (!errors.includes(false)) {
+        const form = {
+            name: e.target['name'].value,
+            email: e.target['email'].value,
+            comments: e.target['comments'].value
+        }
+    
+        const res = await fetch('https://kyh-net22.azurewebsites.net/api/contacts', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form)
+        })
+    
+        if (res.status === 200) {
+            console.log('Tack för din förfrågan.')
+        }
+        else {
+            console.log('Förfrågan kunde inte skickas.')
+        }
+    }
+}
 
-    if (res.status === 200) {
-        console.log('tack för din förfrågan')
+const validatePost = (event) => {
+    switch(event.target.type){
+        case 'email':
+            validateEmail(event.target)
+            break;
+        case 'name':
+            validateName(event.target)
+            break;
+        case 'comments':
+            validateComments(event.target)
+            break;
     }
 
 }
 
+const validateEmail = (element) => {
+    
+    const regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
+    const errorElement = document.getElementById(`error-${element.id}`)
+
+    if (!regEx.test(element.value)) {
+        errorElement.innerHTML = `Input must be a valid email.`
+        return false
+    }
+        
+    errorElement.innerHTML = ``
+    return true
+}
+
+const validateName = (element) => {
+    
+    const regEx = /^[a-zA-Z]{2,20}\s?[a-zA-Z]{0,20}\s?[a-zA-Z]{0,20}$/;
+    const errorElement = document.getElementById(`error-${element.id}`)
+
+    if (!regEx.test(element.value.trim())) {
+        errorElement.innerHTML = `Input must be a valid name.`
+        return false
+    }
+
+    errorElement.innerHTML = ``
+    return true
+}
+
+const validateComments = (element) => {
+    
+    const regEx = /^.{10,250}$/;
+    const errorElement = document.getElementById(`error-${element.id}`)
+
+    if (!regEx.test(element.value)) {
+        errorElement.innerHTML = `Input must be a valid comment.`
+        return false
+    }
+
+    errorElement.innerHTML = ``
+    return true
+}
