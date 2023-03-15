@@ -99,7 +99,7 @@ async function handleContactForm(e) {
     e.preventDefault()
     const errors = []
     const errorMessage = document.getElementById('errorMessage')
-    errorMessage.innerHTML = ' '
+    errorMessage.innerHTML = ''
 
     for (let element of e.target){
         if (element.required) {
@@ -112,7 +112,7 @@ async function handleContactForm(e) {
             else {
                 errorElement.innerHTML = ` `
 
-                switch(element.type){
+                switch(element.id){
                     case 'email':
                         errors.push(validateEmail)
                         break;
@@ -123,7 +123,7 @@ async function handleContactForm(e) {
                         errors.push(validateComments)
                         break;
                 }
-            }
+            }   
         }
     }
 
@@ -135,24 +135,28 @@ async function handleContactForm(e) {
         }
     
         const res = await fetch('https://kyh-net22.azurewebsites.net/api/contacts', {
-            method: 'post',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(form)
         })
-    
+        let submitMessage = document.getElementById('submitMessage')
         if (res.status === 200) {
-            console.log('Tack för din förfrågan.')
+            submitMessage.innerHTML('Tack för din förfrågan.')
         }
         else {
-            console.log('Förfrågan kunde inte skickas.')
+            submitMessage.innerHTML('Förfrågan kunde inte skickas.')
         }
+        let inputs = document.querySelectorAll('#name, #email, #comments')
+        inputs.forEach((input) => {
+            input.value = '';
+        })
     }
 }
 
 const validatePost = (event) => {
-    switch(event.target.type){
+    switch(event.target.id){
         case 'email':
             validateEmail(event.target)
             break;
@@ -163,7 +167,6 @@ const validatePost = (event) => {
             validateComments(event.target)
             break;
     }
-
 }
 
 const validateEmail = (element) => {

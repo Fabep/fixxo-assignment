@@ -13,14 +13,15 @@
         grid-template-areas: "name"
                              "email"
                              "comments"
-                             "button";
+                             "button"
+                             "confirm";
         gap: 20px;
 
         @include md {
             grid-template-columns: 1fr 1fr;
             grid-template-areas: "name email"
                              "comments comments"
-                             "button empty";
+                             "button confirm";
         }
         .error {
             font-size: 0.9em;
@@ -51,6 +52,13 @@
         }
         .contact-form-comments {
             grid-area: comments;
+        }
+        .submitConfirmation {
+            grid-area: confirm;
+            display: flex;
+            align-items: center;
+            @include font-title-2;
+            color: #3ce767;
         }
     }
 }

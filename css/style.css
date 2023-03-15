@@ -962,13 +962,13 @@ header #toggle-icon {
   margin-bottom: 100px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas: "name" "email" "comments" "button";
+  grid-template-areas: "name" "email" "comments" "button" "confirm";
   gap: 20px;
 }
 @media (min-width: 720px) {
   .contact-form form {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "name email" "comments comments" "button empty";
+    grid-template-areas: "name email" "comments comments" "button confirm";
   }
 }
 .contact-form form .error {
@@ -1002,4 +1002,15 @@ header #toggle-icon {
 }
 .contact-form form .contact-form-comments {
   grid-area: comments;
+}
+.contact-form form .submitConfirmation {
+  grid-area: confirm;
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+  margin-bottom: 1rem;
+  color: #3ce767;
 }
