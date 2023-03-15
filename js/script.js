@@ -50,7 +50,7 @@ async function getProducts(target, tag) {
                 <div class="card-menu">
                     <nav class="icons">
                     <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
-                    <a class="link" href="#"><i id="productCart" class="fa-regular fa-bag-shopping"></i></a>
+                    <a id="productCart" class="link" href="#" onclick=addToCart()><i class="fa-regular fa-bag-shopping"></i></a>
                     </nav>
                     <a class="btn-theme" href="#">QUICK VIEW</a>
                 </div>
@@ -58,11 +58,7 @@ async function getProducts(target, tag) {
                     <p class="category">${item.category}</p>
                     <p class="name">${item.name}</p>
                     <div class="ranking">
-                    ${stars[0]}
-                    ${stars[1]}
-                    ${stars[2]}
-                    ${stars[3]}
-                    ${stars[4]}
+                    ${stars}
                     </div>
                     <p class="price">${item.originalPrice} ${item.currency}</p>
                 </div>
@@ -73,13 +69,13 @@ async function getProducts(target, tag) {
 
 const ratingCalculator = (starRating) => {
     let counter = 0;
-    let stars  = [5];
+    let stars  = '';
     while (counter < 5){
         if ( counter <= starRating ) {
-            stars[counter] = '<i class="fa-solid fa-sharp fa-star"></i>'
+            stars += '<i class="fa-solid fa-sharp fa-star"></i>'
         }
         else {
-            stars[counter] = '<i class="fa-regular fa-sharp fa-star"></i>'
+            stars += '<i class="fa-regular fa-sharp fa-star"></i>'
         }
         counter += 1;
     }
@@ -87,11 +83,20 @@ const ratingCalculator = (starRating) => {
 }
 
 const addToCart = () => {
-    let counter = 0;
-    document.getElementById('productCart').onclick = () => {
-        counter += 1;
-        document.getElementById('shoppingCart').innerHTML = `<span class="menu-badge">${counter}</span>`;
+    if (localStorage.getItem('productCount') === null) {
+        localStorage.setItem('productCount', 0)
     }
+    const productCart = document.getElementById('productCart')
+    const shoppingCart = document.getElementById('shoppingCart')
+    let getCount = localStorage.getItem('productCount')
+    let count = parseInt(getCount)
+    productCart.addEventListener('click', (event) => {
+        event.preventDefault();
+        count += 1;
+        localStorage.setItem('productCount', `${count}`)
+        shoppingCart.classList.remove('hide')
+        shoppingCart.innerHTML = (`${count}`)
+    })
 }
 
 // Danger zone

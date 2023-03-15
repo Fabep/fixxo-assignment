@@ -28,10 +28,6 @@ html, body {
   border: 1px solid #222529;
 }
 
-.hide {
-  display: none;
-}
-
 .menu-badge {
   background-color: #ff7373;
   color: #f3f3f3;
@@ -45,6 +41,10 @@ html, body {
   width: 25px;
   border-radius: 50%;
   font-size: 0.8rem;
+}
+
+.hide {
+  display: none;
 }
 
 button {

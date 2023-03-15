@@ -20,10 +20,6 @@ html, body {
     }
 }
 
-.hide {
-    display: none;
-}
-
 .menu-badge {
     @include theme-colors;
     @include content-center;
@@ -34,4 +30,8 @@ html, body {
     width: 25px;
     border-radius: 50%;
     font-size: 0.8rem;
+}
+
+.hide {
+    display: none;
 }
