@@ -12,7 +12,7 @@
             gap: 30px;
             
             @include md {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr 1fr ;
             }
             #popular-products {
                 order: 1;
@@ -40,7 +40,7 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
                 @include md {
-                    grid-template-columns: 1fr 1fr;
+                    grid-template-columns: 1fr 1fr 1fr;
                 }
                 .collection-card  {
                     margin: 0;

@@ -82,6 +82,10 @@ const ratingCalculator = (starRating) => {
     return (stars)
 }
 
+// Need to double click for it to work? 
+// When I used this instead of elementbyid on productcart it lets me click everywhere 
+// to increase the counter once I've clicked on the button.
+// Also only works on first one now?
 const addToCart = () => {
     if (localStorage.getItem('productCount') === null) {
         localStorage.setItem('productCount', 0)
@@ -131,7 +135,6 @@ async function handleContactForm(e) {
             }   
         }
     }
-
     if (!errors.includes(false)) {
         const form = {
             name: e.target['name'].value,
@@ -148,10 +151,10 @@ async function handleContactForm(e) {
         })
         let submitMessage = document.getElementById('submitMessage')
         if (res.status === 200) {
-            submitMessage.innerHTML('Tack för din förfrågan.')
+            submitMessage.innerHTML = ('Tack för din förfrågan.')
         }
         else {
-            submitMessage.innerHTML('Förfrågan kunde inte skickas.')
+            submitMessage.innerHTML = ('Förfrågan kunde inte skickas.')
         }
         let inputs = document.querySelectorAll('#name, #email, #comments')
         inputs.forEach((input) => {

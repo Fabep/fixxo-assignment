@@ -719,7 +719,7 @@ header #toggle-icon {
 }
 @media (min-width: 720px) {
   .sale .container .sale-grid .products {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 .sale .container .sale-grid .products .collection-card {
