@@ -1,0 +1,3 @@
+# Fixxo-assignment
+
+Mock-up of an e-commerce clothing site. Assignment made to teach how to structure html and css/scss well and basic javascript. We were allowed to use react if we wanted, but I decided to opt out of that. Didn't manage to make it as responsive as I'd wanted it to. But think it could all be fixed if I used more media queries. Used api's that my educator set up. One for getting products and the other for posting contact information/comments. Used basic regex to validate the inputs of the contact form (Email, name, comments). Does not contain a product page as I were to lazy to make it.
